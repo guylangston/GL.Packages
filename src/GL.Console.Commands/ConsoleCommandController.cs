@@ -306,7 +306,6 @@ namespace GL.Console.Commands
 #else
             return null;
 #endif
-
         }
 
 
