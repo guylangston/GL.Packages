@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GL.DAL", "GL.DAL\GL.DAL.xproj", "{D34419A5-E6C1-43D3-8BF7-4363A26B899E}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GL.CMS", "GL.CMS\GL.CMS.xproj", "{DB538E0A-C54E-4C7A-A10C-0580101C5BD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D34419A5-E6C1-43D3-8BF7-4363A26B899E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D34419A5-E6C1-43D3-8BF7-4363A26B899E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D34419A5-E6C1-43D3-8BF7-4363A26B899E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D34419A5-E6C1-43D3-8BF7-4363A26B899E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB538E0A-C54E-4C7A-A10C-0580101C5BD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB538E0A-C54E-4C7A-A10C-0580101C5BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB538E0A-C54E-4C7A-A10C-0580101C5BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB538E0A-C54E-4C7A-A10C-0580101C5BD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
