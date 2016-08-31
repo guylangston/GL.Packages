@@ -31,7 +31,7 @@ namespace GL.DAL
             };
         }
 
-        public QueryBindContext<TResult> BindByIndex<TResult>(Func<IDataReader, QueryBindContext<TResult>, TResult> func)
+        public QueryBindContext<TResult> BindByIndexAs<TResult>(Func<IDataReader, QueryBindContext<TResult>, TResult> func)
         {
             return new QueryBindContext<TResult>()
             {
@@ -40,7 +40,7 @@ namespace GL.DAL
             };
         }
 
-        public QueryBindContext<TResult> BindByName<TResult>(Func<IDataReader, FieldLookup, QueryBindContext<TResult>, TResult> func)
+        public QueryBindContext<TResult> BindByNameAs<TResult>(Func<IDataReader, FieldLookup, QueryBindContext<TResult>, TResult> func)
         {
             FieldLookup lookup = null;
             return new QueryBindContext<TResult>()
