@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
     public class UpdateStatement : DataStatement
     {
@@ -65,7 +65,7 @@ namespace GL.FluentDAL
 
         public int Execute(string db)
         {
-            return DBHelper.ExecuteQuerySingle(db, r => r.GetInt32(0), ToString() + " SELECT @@ROWCOUNT");
+            return OldHelper.ExecuteQuerySingle(db, r => r.GetInt32(0), ToString() + " SELECT @@ROWCOUNT");
         }
     }
 }

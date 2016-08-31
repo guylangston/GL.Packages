@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
     public interface IDBLogger
     {

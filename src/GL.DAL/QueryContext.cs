@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
     public class QueryContext : BaseContext
     {
@@ -49,7 +49,7 @@ namespace GL.FluentDAL
                 {
                     if (lookup == null)
                     {
-                        lookup = DBHelper.GetColumnNames(r);
+                        lookup = OldHelper.GetColumnNames(r);
                     }
                     return func(r, lookup, c);
                 },
@@ -78,7 +78,7 @@ namespace GL.FluentDAL
 
         public void Execute()
         {
-            DBHelper.ExecuteQueryNoReturn(Query.Context.ConnectionString, BindFunc, Query.Sql, Query.Args?.ToArray());
+            OldHelper.ExecuteQueryNoReturn(Query.Context.ConnectionString, BindFunc, Query.Sql, Query.Args?.ToArray());
         }
     }
 
@@ -88,17 +88,17 @@ namespace GL.FluentDAL
 
         public ImmutableList<TResult> ToList()
         {
-            return DBHelper.ExecuteQuery<TResult>(Query.Context.ConnectionString, r=>BindFunc(r, this), Query.Sql, Query.Args).ToImmutableList();
+            return OldHelper.ExecuteQuery<TResult>(Query.Context.ConnectionString, r=>BindFunc(r, this), Query.Sql, Query.Args).ToImmutableList();
         }
 
         public List<TResult> ToMutableList()
         {
-            return DBHelper.ExecuteQuery<TResult>(Query.Context.ConnectionString, r => BindFunc(r, this), Query.Sql, Query.Args).ToList();
+            return OldHelper.ExecuteQuery<TResult>(Query.Context.ConnectionString, r => BindFunc(r, this), Query.Sql, Query.Args).ToList();
         }
 
         public TResult FirstOrDefault()
         {
-            return DBHelper.ExecuteQuerySingle<TResult>(Query.Context.ConnectionString, r => BindFunc(r, this), Query.Sql, Query.Args);
+            return OldHelper.ExecuteQuerySingle<TResult>(Query.Context.ConnectionString, r => BindFunc(r, this), Query.Sql, Query.Args);
         }
 
         public Task<List<TResult>> ToMutableListAsync()

@@ -3,7 +3,7 @@ using System.Data;
 using System.Globalization;
 using System.Reflection;
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
     public static class DBHelper2
     {

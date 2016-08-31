@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
     public class InsertStatement : DataStatement
     {
@@ -62,12 +62,12 @@ namespace GL.FluentDAL
 
         public int Execute(string db)
         {
-            return DBHelper.ExecuteQuerySingle(db, r => r.GetInt32(0), ToString());
+            return OldHelper.ExecuteQuerySingle(db, r => r.GetInt32(0), ToString());
         }
 
         public void ExecuteNoScopeId(string db)
         {
-            DBHelper.ExecuteCommand(db, ToString());
+            OldHelper.ExecuteCommand(db, ToString());
         }
 
         public void SetupCommand(SqlCommand com)

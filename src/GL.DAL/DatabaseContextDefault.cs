@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
     public class DatabaseContextDefault : IDatabaseContext
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
     //public class Sample
     //{

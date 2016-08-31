@@ -1,4 +1,4 @@
-﻿namespace GL.FluentDAL
+﻿namespace GL.DAL
 {
     public class InsertContext : BaseContext
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
     public static class SQLTextHelper
     {

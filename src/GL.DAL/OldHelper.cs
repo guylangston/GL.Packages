@@ -8,10 +8,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
-    [Obsolete("Drop in favour of fluent")]
-    internal static class DBHelper
+    
+    internal static class OldHelper
     {
         #region Init
         public static IDBLogger Logger { get; set; }

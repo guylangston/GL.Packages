@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
 
     public interface IValueWriter

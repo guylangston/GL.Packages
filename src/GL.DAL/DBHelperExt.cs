@@ -1,9 +1,8 @@
 using System;
 using System.Data;
-using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
     public static class DBHelperExt
     {

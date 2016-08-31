@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace GL.FluentDAL
+namespace GL.DAL
 {
     public static class DBHelperSchema
     {
@@ -71,7 +71,7 @@ namespace GL.FluentDAL
         /// <returns></returns>
         public static IReadOnlyList<SchemaTable> GetTablesOnly(string conn)
         {
-            return DBHelper.ExecuteQuery(conn, r =>
+            return OldHelper.ExecuteQuery(conn, r =>
             {
                 return new SchemaTable()
                 {
@@ -90,7 +90,7 @@ namespace GL.FluentDAL
         {
             var tbls = GetTablesOnly(conn);
             
-            DBHelper.ExecuteQuery(conn, r =>BindField(r, tbls),
+            OldHelper.ExecuteQuery(conn, r =>BindField(r, tbls),
                 "SELECT * FROM INFORMATION_SCHEMA.COLUMNS ORDER BY TABLE_NAME, ORDINAL_POSITION");
 
             return tbls;
@@ -100,7 +100,7 @@ namespace GL.FluentDAL
         {
             var tbls = GetTablesOnly(conn);
 
-            DBHelper.ExecuteQuery(conn, r => BindField(r, tbls),
+            OldHelper.ExecuteQuery(conn, r => BindField(r, tbls),
                 "SELECT * FROM INFORMATION_SCHEMA.COLUMNS  WHERE TABLE_NAME={0} ORDER BY TABLE_NAME, ORDINAL_POSITION", table);
 
             return tbls;
@@ -126,7 +126,7 @@ namespace GL.FluentDAL
             foreach (var table in GetTablesOnly(conn))
             {
                 
-                res.Add(DBHelper.ExecuteQuerySingle(conn, r =>
+                res.Add(OldHelper.ExecuteQuerySingle(conn, r =>
                 {
                     return new TableSizeEntry()
                     {
@@ -161,11 +161,11 @@ namespace GL.FluentDAL
             f.Name = r.GetString(3);    // COLUMN_NAME
             f.Index = r.GetInt32(4); // ORDINAL_POSITION
             f.Type = r.GetString(7); // DATA_TYPE
-            f.StringMaxLength = DBHelper.ReadInt32Null(r, 8);
-            f.NumericPrecision = DBHelper.ReadByteNull(r, 10); // NUMERIC_PRECISION
-            f.NumericPrecisionRadix = DBHelper.ReadShortNull(r, 11); // NUMERIC_PRECISION_RADIX
-            f.NumericPrecisionScale = DBHelper.ReadInt32Null(r, 12); // NUMERIC_PRECISION_SCALE
-            f.DateTimePrecision = DBHelper.ReadShortNull(r, 13); // DATETIME_PRECISION
+            f.StringMaxLength = OldHelper.ReadInt32Null(r, 8);
+            f.NumericPrecision = OldHelper.ReadByteNull(r, 10); // NUMERIC_PRECISION
+            f.NumericPrecisionRadix = OldHelper.ReadShortNull(r, 11); // NUMERIC_PRECISION_RADIX
+            f.NumericPrecisionScale = OldHelper.ReadInt32Null(r, 12); // NUMERIC_PRECISION_SCALE
+            f.DateTimePrecision = OldHelper.ReadShortNull(r, 13); // DATETIME_PRECISION
 
             return f;
         }
