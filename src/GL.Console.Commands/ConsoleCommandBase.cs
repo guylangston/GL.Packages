@@ -116,7 +116,7 @@ namespace GL.Console.Commands
         /// <returns></returns>
         public virtual bool CanProcess(string argCommandName)
         {
-            return string.Equals(Name, argCommandName, StringComparison.InvariantCultureIgnoreCase);
+            return string.Equals(Name, argCommandName, StringComparison.OrdinalIgnoreCase);
         }
 
         public virtual bool CheckArgs(ConsoleCommandController controller, Action<string> displayError)

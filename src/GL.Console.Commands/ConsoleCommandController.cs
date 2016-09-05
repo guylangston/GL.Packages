@@ -18,6 +18,8 @@ namespace GL.Console.Commands
         Cancelled
     }
 
+
+
     /// <summary>
     /// This is a helper class to allow multiple commands with multiple parameters to be quickly built for a Console app.
     /// </summary>
@@ -156,12 +158,21 @@ namespace GL.Console.Commands
                         System.Console.ForegroundColor = ConsoleColor.Red;
                         break;
                 }
-                Display("Exiting with ReturnCode: {0}({1}) in {2}", result, (int)result, DisplayHelper.ElapsedString(timer.Duration));   
+                Display("Exiting with ReturnCode: {0}({1}) in {2}", result, (int)result, Elipse(timer.Duration.ToString(), 80));   
             }
 
             System.Console.ForegroundColor = colourAtStart;
 
             return result;
+        }
+
+        private static string Elipse(string text, int max, string elipse = "...")
+        {
+            if (text == null) return null;
+            text = text.Replace('\n', '|').Replace('\r', '|').Replace('\f', '|');
+            if (text.Length <= max) return text;
+            return text.Substring(0, max - elipse.Length) + elipse;
+
         }
 
         private void ExecuteInternal()
@@ -369,7 +380,7 @@ namespace GL.Console.Commands
                             arg.Name,
                             arg.IsRequired ? "REQUIRED" : "Optional",
                             arg.Description,
-                            StringHelper.Elipse(arg.Default ?? "(null)", 50));
+                            Elipse(arg.Default ?? "(null)", 50));
                     }
                 }
                 else if (cmd.ArgDescription != null)
